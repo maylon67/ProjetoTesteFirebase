@@ -5,14 +5,16 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projeto_teste_firebase/login/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseFirestore db = FirebaseFirestore.instance;
-  db.collection('produtos').doc('produto001').set({
-    'nome': 'caneta',
-  });
+
+  //.collection('produtos')
+  // .doc('produto001')
+  // .set({'nome': 'caneta', 'preço': '2,50'});
   runApp(const MyApp());
 }
 
@@ -36,7 +38,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: LoginPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
